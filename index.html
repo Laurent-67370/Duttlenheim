@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏸 Soirée Playbad – 16 Mars 2026</title>
+    <style>
+        :root {
+            --primary: #16a34a;
+            --primary-dark: #15803d;
+            --primary-light: #22c55e;
+            --accent: #86efac;
+            --bg: #f0fdf4;
+            --surface: #ffffff;
+            --text-primary: #14532d;
+            --text-secondary: #4b7c5a;
+            --border: #bbf7d0;
+            --shadow: 0 1px 4px rgba(22,163,74,0.08);
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --info: #0ea5e9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { overflow-x: hidden; }
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            padding-bottom: 40px;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        /* ══ HEADER ══ */
+        header {
+            background: linear-gradient(135deg, #14532d 0%, #166534 50%, #16a34a 100%);
+            color: white;
+            padding: 20px 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 16px rgba(22,163,74,0.3);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        header::before {
+            content: '🏸';
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            font-size: 8rem;
+            opacity: 0.08;
+            transform: rotate(-20deg);
+            pointer-events: none;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header-title h1 {
+            font-size: clamp(1rem, 4vw, 1.8rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .header-title p {
+            color: #86efac;
+            margin-top: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(134,239,172,0.2);
+            border: 1px solid rgba(134,239,172,0.4);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #86efac;
+            margin-top: 6px;
+        }
+
+        .header-btns {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            align-items: center;
+        }
+
+        .btn-sheet {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1a8754;
+            color: white;
+            text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.2s;
+            flex-shrink: 1;
+            min-width: 0;
+            white-space: nowrap;
+        }
+        .btn-sheet:hover { background: #157347; transform: translateY(-2px); }
+        .btn-sheet svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #25d366;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            padding: 9px 14px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 1;
+            min-width: 0;
+            white-space: nowrap;
+        }
+        .btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); }
+
+        .btn-print {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            padding: 9px 14px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 1;
+            min-width: 0;
+            white-space: nowrap;
+        }
+        .btn-print:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
+
+        .btn-help {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            padding: 9px 14px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 1;
+            min-width: 0;
+            white-space: nowrap;
+        }
+        .btn-help:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
+
+        .connection-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.3);
+            flex-shrink: 1;
+            min-width: 0;
+            white-space: nowrap;
+        }
+        .connection-indicator.connected { background: rgba(34,197,94,0.2); color: #86efac; }
+        .connection-indicator.disconnected { background: rgba(239,68,68,0.2); color: #fca5a5; }
+        .conn-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .connected .conn-dot { background: #22c55e; animation: pulse 2s infinite; }
+        .disconnected .conn-dot { background: #ef4444; }
+
+        @media (max-width: 860px) {
+            .header-inner { flex-direction: column; gap: 10px; }
+            .header-btns { gap: 6px; flex-wrap: wrap; }
+        }
+
+        /* ══ MAIN ══ */
+        main {
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+            padding: 0 16px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 24px;
+        }
+        main > div { min-width: 0; width: 100%; }
+
+        @media (max-width: 768px) { main { grid-template-columns: 1fr; } }
+
+        @media (max-width: 520px) {
+            main { padding: 0 10px; gap: 16px; }
+            .card { padding: 16px 14px; }
+        }
+
+        /* ══ CARDS ══ */
+        .card {
+            background: var(--surface);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(22,163,74,0.12); }
+
+        .card h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 16px;
+        }
+
+        /* ══ STATS ══ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.2s;
+        }
+        .stat-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(22,163,74,0.15); }
+        .stat-label { font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-value { font-size: 2.2rem; font-weight: 800; color: var(--primary); line-height: 1; }
+
+        @media (max-width: 640px) {
+            .stats-grid { gap: 8px; }
+            .stat-value { font-size: 1.6rem; }
+            .stat-label { font-size: 0.7rem; }
+        }
+
+        /* ══ FORMULAIRE ══ */
+        .form-group { margin-bottom: 16px; }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: var(--surface);
+            color: var(--text-primary);
+            min-width: 0;
+        }
+        input[type="text"]:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(22,163,74,0.15);
+        }
+
+        .btn-submit {
+            width: 100%;
+            margin-top: 12px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 8px rgba(22,163,74,0.3);
+            min-width: 0;
+        }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(22,163,74,0.4); }
+        .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .help-tip {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        /* ══ TABLE ══ */
+        .refresh-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+        .refresh-info { font-size: 0.85rem; color: var(--primary-dark); display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .refresh-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--primary); display: inline-block; animation: pulse 2s infinite; }
+
+        .table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        thead tr { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+        th {
+            padding: 14px 18px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--border);
+            text-align: left;
+        }
+        th.center, td.center { text-align: center; }
+        td { padding: 14px 18px; font-size: 0.9rem; color: var(--text-primary); border-bottom: 1px solid #f0fdf4; }
+        tr:hover td { background: #f0fdf4; }
+
+        .row-num { font-size: 0.75rem; color: var(--text-secondary); font-weight: 600; }
+
+        .btn-edit {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-right: 6px;
+        }
+        .btn-edit:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(245,158,11,0.3); }
+
+        .btn-delete {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-delete:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(220,38,38,0.3); }
+
+        #emptyState { padding: 60px 40px; text-align: center; color: var(--text-secondary); }
+
+        /* ══ NOTIFICATIONS ══ */
+        #notification {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: none;
+            z-index: 2000;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            max-width: 90vw;
+        }
+        #notification.success { background: #dcfce7; color: #15803d; border: 2px solid #86efac; }
+        #notification.error { background: #fee2e2; color: #dc2626; border: 2px solid #fca5a5; }
+        #notification.info { background: #e0f2fe; color: #0369a1; border: 2px solid #7dd3fc; }
+
+        /* ══ MODALS ══ */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+
+        .modal {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        .modal-sm { max-width: 380px; text-align: center; }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border);
+        }
+        .modal-header h3 { font-size: 1.2rem; font-weight: 700; color: var(--text-primary); }
+
+        .btn-close {
+            background: #f1f5f9;
+            color: #64748b;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-close:hover { background: #e2e8f0; }
+
+        .btn-modal-cancel {
+            background: #f1f5f9;
+            color: #64748b;
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-modal-save {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-modal-save:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(22,163,74,0.3); }
+
+        .btn-modal-danger {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-modal-danger:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(220,38,38,0.3); }
+
+        .modal-buttons { display: flex; gap: 16px; margin-top: 24px; }
+        .modal-buttons button { flex: 1; }
+
+        .confirm-icon { font-size: 3rem; margin-bottom: 16px; }
+        .confirm-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: var(--text-primary); }
+        .confirm-msg { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px; }
+        .confirm-name { color: var(--danger); font-weight: 700; font-size: 1rem; margin-bottom: 16px; }
+
+        /* ══ HELP BLOCKS ══ */
+        .help-block {
+            padding: 14px 16px;
+            border-radius: 10px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            margin-bottom: 4px;
+        }
+        .help-block-green  { border-left: 4px solid #25d366; background: #f0fdf4; }
+        .help-block-gray   { border-left: 4px solid #64748b; background: #f8fafc; }
+        .help-block-blue   { border-left: 4px solid #0ea5e9; background: #f0f9ff; }
+        .help-block-orange { border-left: 4px solid #f59e0b; background: #fffbeb; }
+
+        /* ══ ANIMATIONS ══ */
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.4;transform:scale(0.8);} }
+        @keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+        .fade-in { animation: fadeIn 0.3s ease-out; }
+
+        /* ══ PRINT ══ */
+        .print-header { display: none; }
+        @media print {
+            body { background: white !important; color: black !important; padding: 0; }
+            header { background: #14532d !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; margin-bottom: 12px; }
+            .header-btns, .header-badge, #notification, .modal-overlay,
+            .card, .stats-grid { display: none !important; }
+            main { display: block !important; padding: 0 !important; }
+            .print-stats { display: grid !important; grid-template-columns: repeat(2,1fr) !important; gap: 8px !important; margin-bottom: 12px !important; }
+            .print-stat { border: 1px solid #ccc !important; padding: 10px !important; border-radius: 6px !important; text-align: center; }
+            table { width: 100% !important; font-size: 0.85rem !important; }
+            th { background: #f0fdf4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            td { padding: 8px 12px !important; }
+            th:last-child, td:last-child { display: none !important; }
+            .print-header { display: block !important; text-align: center; font-size: 0.8rem; color: #555; margin-bottom: 8px; }
+            .table-wrapper { overflow: visible !important; }
+            @page { margin: 1cm; }
+        }
+
+        /* ══ MODE SOMBRE ══ */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #052e16;
+                --surface: #14532d;
+                --text-primary: #dcfce7;
+                --text-secondary: #86efac;
+                --border: #166534;
+                --shadow: 0 1px 4px rgba(0,0,0,0.4);
+            }
+            body { background: #071c0f; }
+            header { background: linear-gradient(135deg, #052e16, #14532d, #166534); }
+            input[type="text"] { background: #052e16; border-color: #166534; color: #dcfce7; }
+            input[type="text"]:focus { border-color: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,0.15); }
+            .help-tip { background: linear-gradient(135deg, #052e16, #0a3d1e); }
+            thead tr { background: linear-gradient(135deg, #052e16, #0a3d1e); }
+            tr:hover td { background: #0a3d1e; }
+            td { border-bottom-color: #166534; }
+            th { border-bottom-color: #166534; }
+            .refresh-bar { background: linear-gradient(135deg, #052e16, #0a3d1e); border-color: #166534; }
+            .refresh-info { color: #86efac; }
+            .modal { background: #14532d; }
+            .modal-header { border-bottom-color: #166534; }
+            .btn-close { background: #166534; color: #86efac; }
+            .btn-close:hover { background: #1a7340; }
+            .btn-modal-cancel { background: #166534; color: #86efac; }
+            .confirm-title { color: #dcfce7; }
+            #notification.success { background: #052e16; color: #86efac; border-color: #166534; }
+            #notification.error { background: #2d0a0a; color: #fca5a5; }
+            #notification.info { background: #0c1f30; color: #7dd3fc; }
+            .help-block { color: #dcfce7; border-color: #166534; }
+            .help-block-green  { background: #052e16; }
+            .help-block-gray   { background: #1e293b; border-left-color: #94a3b8; }
+            .help-block-blue   { background: #0c2038; border-left-color: #38bdf8; }
+            .help-block-orange { background: #2d1a0a; border-left-color: #fbbf24; }
+            .stat-card { background: var(--surface); }
+            #emptyState { color: var(--text-secondary); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="notification"></div>
+
+    <!-- Modal suppression -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal modal-sm">
+            <div class="confirm-icon">🗑️</div>
+            <div class="confirm-title">Confirmer la suppression</div>
+            <div class="confirm-msg">Voulez-vous vraiment supprimer</div>
+            <div class="confirm-name" id="deleteModalName"></div>
+            <div class="modal-buttons">
+                <button class="btn-modal-cancel" onclick="closeDeleteModal()">Annuler</button>
+                <button class="btn-modal-danger" id="btnConfirmDelete">Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal édition -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>✏️ Modifier l'inscription</h3>
+                <button class="btn-close" onclick="closeEditModal()">✕</button>
+            </div>
+            <div class="form-group">
+                <label>Nom / Prénom *</label>
+                <input type="text" id="editName" required placeholder="Ex: Jean Dupont">
+            </div>
+            <input type="hidden" id="editId">
+            <div class="modal-buttons">
+                <button class="btn-modal-cancel" onclick="closeEditModal()">Annuler</button>
+                <button class="btn-modal-save" id="editSubmitBtn" onclick="saveEdit()">💾 Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal aide -->
+    <div class="modal-overlay" id="helpModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>🏸 Guide d'utilisation</h3>
+                <button class="btn-close" onclick="toggleHelp()">✕</button>
+            </div>
+            <div style="margin-bottom: 20px;">
+
+                <h4 style="margin-bottom: 12px; color: var(--primary);">📝 S'inscrire</h4>
+                <ol style="margin-left: 20px; line-height: 1.8; color: var(--text-primary);">
+                    <li style="margin-bottom: 8px;">Entrez votre <strong>Nom / Prénom</strong></li>
+                    <li style="margin-bottom: 8px;">Cliquez sur <strong>"✅ Je participe !"</strong></li>
+                    <li>Vérifiez que votre nom apparaît dans la liste</li>
+                </ol>
+
+                <h4 style="margin: 20px 0 12px; color: var(--primary);">✏️ Modifier son inscription</h4>
+                <ol style="margin-left: 20px; line-height: 1.8; color: var(--text-primary);">
+                    <li style="margin-bottom: 8px;">Cliquer sur <strong>✏️</strong> à côté de votre nom</li>
+                    <li style="margin-bottom: 8px;">Modifier votre nom</li>
+                    <li>Cliquer sur <strong>"💾 Enregistrer"</strong></li>
+                </ol>
+
+                <h4 style="margin: 20px 0 12px; color: var(--primary);">🗑️ Se désinscrire</h4>
+                <ol style="margin-left: 20px; line-height: 1.8; color: var(--text-primary);">
+                    <li style="margin-bottom: 8px;">Cliquer sur <strong>🗑️</strong> à côté de votre nom</li>
+                    <li>Confirmer dans la fenêtre qui s'affiche</li>
+                </ol>
+
+                <h4 style="margin: 20px 0 12px; color: var(--primary);">💬 Partager via WhatsApp</h4>
+                <div class="help-block help-block-green">
+                    <p>Cliquer sur <strong>💬 Partager</strong> dans l'en-tête pour envoyer le lien via WhatsApp avec un message pré-rédigé.</p>
+                </div>
+
+                <h4 style="margin: 20px 0 12px; color: var(--primary);">🖨️ Imprimer la liste</h4>
+                <div class="help-block help-block-gray">
+                    <p>Cliquer sur <strong>🖨️ Imprimer</strong> pour une impression propre avec uniquement la liste des participants.</p>
+                </div>
+
+                <h4 style="margin: 20px 0 12px; color: var(--primary);">🔥 Synchronisation temps réel</h4>
+                <div class="help-block help-block-blue">
+                    <p><strong>✅ Mises à jour instantanées</strong> — Tous les changements sont visibles par tous en temps réel, sans rafraîchir la page.</p>
+                </div>
+
+                <h4 style="margin: 20px 0 12px; color: var(--warning);">📊 Google Sheet</h4>
+                <div class="help-block help-block-orange">
+                    <p>Le bouton <strong>Google Sheet</strong> est <strong>consultatif uniquement</strong>. Les inscriptions se font exclusivement depuis cette application.</p>
+                </div>
+
+            </div>
+            <div style="text-align:right;">
+                <button class="btn-modal-save" onclick="toggleHelp()" style="width:auto; padding: 10px 24px;">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <div class="header-title">
+                <h1>🏸 Soirée Playbad</h1>
+                <p>📅 Lundi 16 Mars 2026 — Duttlenheim</p>
+                <div class="header-badge">🏆 Badminton</div>
+                <div class="header-btns">
+                    <a class="btn-sheet"
+                       href="https://docs.google.com/spreadsheets/d/15LZtkmyDMT2JUzqqRHQgZF0yKA6DVU7Wz_FiQAB-dSU/edit"
+                       target="_blank"
+                       title="Consultation uniquement">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5C3.9 3 3 3.9 3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 14H7v-2h4v2zm0-4H7v-2h4v2zm0-4H7V7h4v2zm6 8h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V7h4v2z"/></svg>
+                        Google Sheet <span style="font-size:0.7rem;opacity:0.8;font-weight:400;">(consultatif)</span>
+                    </a>
+                    <button class="btn-whatsapp" onclick="partagerWhatsApp()">💬 Partager</button>
+                    <button class="btn-print" onclick="window.print()">🖨️ Imprimer</button>
+                    <button class="btn-help" onclick="toggleHelp()">❓ Aide</button>
+                    <div class="connection-indicator" id="connectionIndicator">
+                        <span class="conn-dot"></span>
+                        <span id="connText">Connexion...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Colonne gauche -->
+        <div style="display:flex; flex-direction:column; gap:24px;">
+
+            <!-- Formulaire inscription -->
+            <div class="card">
+                <h2>🏸 Je participe !</h2>
+                <div class="help-tip">
+                    <span>💡</span>
+                    <div>Inscrivez-vous en entrant simplement votre nom. Vous pourrez vous désinscrire à tout moment.</div>
+                </div>
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label>Nom / Prénom *</label>
+                        <input type="text" id="name" placeholder="Ex: Jean Dupont" required autocomplete="name">
+                    </div>
+                    <button type="submit" class="btn-submit" id="submitBtn">✅ Je participe !</button>
+                </form>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">🏸 Participants</div>
+                    <div class="stat-value" id="statTotal">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">✅ Inscrits</div>
+                    <div class="stat-value" id="statInscrits">0</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Colonne droite : liste -->
+        <div style="display:flex; flex-direction:column; gap:16px;">
+
+            <div class="refresh-bar">
+                <div class="refresh-info">
+                    <span class="refresh-dot"></span>
+                    Synchronisation en temps réel
+                </div>
+                <span id="lastUpdate" style="font-size:0.8rem; color:var(--text-secondary); font-weight:600;"></span>
+            </div>
+
+            <div class="card" style="padding:0; overflow:hidden;">
+                <div style="padding:16px 24px; border-bottom:2px solid var(--border); background:linear-gradient(135deg,#f0fdf4,#dcfce7); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+                    <h2 style="font-size:1.1rem; font-weight:700; margin:0; border:none; padding:0;">📋 Liste des participants</h2>
+                </div>
+                <div class="print-header">
+                    <strong>Soirée Playbad Badminton — Lundi 16 Mars 2026 — Duttlenheim</strong><br>
+                    <span id="printDate"></span>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width:40px;">#</th>
+                                <th>Nom / Prénom</th>
+                                <th class="center" style="width:120px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                    <div id="emptyState" style="display:none;">
+                        <div style="font-size:3rem; margin-bottom:12px;">🏸</div>
+                        <p style="font-size:1rem; font-weight:600; margin-bottom:6px;">Aucun participant pour l'instant</p>
+                        <p style="font-size:0.85rem;">Soyez le premier à vous inscrire !</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+
+    <script>
+        // ══════════════════════════════════════════════
+        // ⚠️ REMPLACER PAR LA CONFIG DE VOTRE PROJET FIREBASE
+        // ══════════════════════════════════════════════
+        const firebaseConfig = {
+            apiKey: "AIzaSyCcVB-mc6BACd_XBDnPjuhulJAmIQzjGFE",
+            authDomain: "playbad-duttlenheim.firebaseapp.com",
+            databaseURL: "https://playbad-duttlenheim-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "playbad-duttlenheim",
+            storageBucket: "playbad-duttlenheim.firebasestorage.app",
+            messagingSenderId: "219272879338",
+            appId: "1:219272879338:web:a32cde593a2fc855028b93"
+        };
+
+        const API_URL = '/.netlify/functions/api-playbad';
+
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Éléments DOM
+        const form         = document.getElementById('registrationForm');
+        const submitBtn    = document.getElementById('submitBtn');
+        const tableBody    = document.getElementById('tableBody');
+        const emptyState   = document.getElementById('emptyState');
+        const deleteModal  = document.getElementById('deleteModal');
+        const editModal    = document.getElementById('editModal');
+        const helpModal    = document.getElementById('helpModal');
+        const editSubmitBtn = document.getElementById('editSubmitBtn');
+
+        let participants = [];
+
+        // ── CONNEXION FIREBASE ──
+        database.ref('.info/connected').on('value', snap => {
+            const ci = document.getElementById('connectionIndicator');
+            const ct = document.getElementById('connText');
+            if (snap.val()) {
+                ci.className = 'connection-indicator connected';
+                ct.textContent = '🏸 Connecté';
+            } else {
+                ci.className = 'connection-indicator disconnected';
+                ct.textContent = 'Hors ligne';
+            }
+        });
+
+        // ── TEMPS RÉEL ──
+        database.ref('participants').on('value', snapshot => {
+            const data = snapshot.val() || {};
+            participants = Object.values(data).sort((a, b) =>
+                new Date(a.createdAt) - new Date(b.createdAt)
+            );
+            renderTable();
+            updateStats();
+            document.getElementById('lastUpdate').textContent =
+                'Mis à jour à ' + new Date().toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+        });
+
+        // ── STATS ──
+        function updateStats() {
+            document.getElementById('statTotal').textContent = participants.length;
+            document.getElementById('statInscrits').textContent = participants.length;
+        }
+
+        // ── RENDU TABLE ──
+        function renderTable() {
+            tableBody.innerHTML = '';
+            if (participants.length === 0) {
+                emptyState.style.display = 'block';
+                return;
+            }
+            emptyState.style.display = 'none';
+
+            participants.forEach((p, index) => {
+                const row = document.createElement('tr');
+                row.className = 'fade-in';
+                row.innerHTML = `
+                    <td class="row-num center">${index + 1}</td>
+                    <td style="font-weight:600">${escapeHtml(p.name)}</td>
+                    <td class="center">
+                        <button class="btn-edit" onclick="openEdit('${p.id}', '${escapeAttr(p.name)}')">✏️</button>
+                        <button class="btn-delete" onclick="askDelete('${p.id}', '${escapeAttr(p.name)}')">🗑️</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g,'&amp;')
+                .replace(/</g,'&lt;')
+                .replace(/>/g,'&gt;')
+                .replace(/"/g,'&quot;');
+        }
+        function escapeAttr(str) {
+            return String(str).replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        }
+
+        // ── INSCRIPTION ──
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            if (!name) { showNotification('Veuillez saisir un nom.', 'error'); return; }
+
+            const original = submitBtn.textContent;
+            submitBtn.textContent = '⏳ Enregistrement...';
+            submitBtn.disabled = true;
+
+            fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    form.reset();
+                    showNotification('✅ Inscription enregistrée !', 'success');
+                    submitBtn.textContent = '✅ Validé !';
+                    setTimeout(() => { submitBtn.textContent = original; submitBtn.disabled = false; }, 2500);
+                } else throw new Error(data.error);
+            })
+            .catch(err => {
+                showNotification("❌ Erreur lors de l'inscription.", 'error');
+                submitBtn.textContent = original;
+                submitBtn.disabled = false;
+            });
+        });
+
+        // ── SUPPRESSION ──
+        function askDelete(id, name) {
+            document.getElementById('deleteModalName').textContent = name;
+            document.getElementById('btnConfirmDelete').onclick = () => confirmDelete(id, name);
+            deleteModal.classList.add('active');
+        }
+        function closeDeleteModal() { deleteModal.classList.remove('active'); }
+        function confirmDelete(id, name) {
+            closeDeleteModal();
+            fetch(`${API_URL}/${id}`, { method: 'DELETE', headers: { 'Content-Type': 'application/json' } })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) showNotification(`🗑️ ${name} supprimé`, 'success');
+                else throw new Error(data.error);
+            })
+            .catch(() => showNotification("❌ Erreur lors de la suppression.", 'error'));
+        }
+
+        // ── ÉDITION ──
+        function openEdit(id, name) {
+            document.getElementById('editId').value = id;
+            document.getElementById('editName').value = name;
+            editModal.classList.add('active');
+        }
+        function closeEditModal() { editModal.classList.remove('active'); }
+        function saveEdit() {
+            const id   = document.getElementById('editId').value;
+            const name = document.getElementById('editName').value.trim();
+            if (!name) { showNotification('Veuillez saisir un nom.', 'error'); return; }
+
+            const original = editSubmitBtn.textContent;
+            editSubmitBtn.textContent = '⏳...';
+            editSubmitBtn.disabled = true;
+
+            fetch(API_URL, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, name })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    closeEditModal();
+                    showNotification('✅ Modification enregistrée !', 'success');
+                } else throw new Error(data.error);
+            })
+            .catch(() => showNotification("❌ Erreur lors de la modification.", 'error'))
+            .finally(() => { editSubmitBtn.textContent = original; editSubmitBtn.disabled = false; });
+        }
+
+        // ── NOTIFICATIONS ──
+        function showNotification(msg, type='info') {
+            const n = document.getElementById('notification');
+            n.textContent = msg;
+            n.className = type;
+            n.style.display = 'block';
+            setTimeout(() => { n.style.display = 'none'; }, 3500);
+        }
+
+        // ── WHATSAPP ──
+        function partagerWhatsApp() {
+            const msg = encodeURIComponent("🏸 Soirée Playbad Badminton – Lundi 16 Mars 2026 à Duttlenheim\n\nClique ici pour t'inscrire :\n" + window.location.href);
+            window.open('https://wa.me/?text=' + msg, '_blank');
+        }
+
+        // ── MODALS FERMETURE EXTÉRIEURE ──
+        function toggleHelp() { helpModal.classList.toggle('active'); }
+        deleteModal.addEventListener('click', e => { if (e.target === deleteModal) closeDeleteModal(); });
+        editModal.addEventListener('click', e => { if (e.target === editModal) closeEditModal(); });
+        helpModal.addEventListener('click', e => { if (e.target === helpModal) toggleHelp(); });
+
+        // ── DATE IMPRESSION ──
+        const now = new Date();
+        const pd = document.getElementById('printDate');
+        if (pd) pd.textContent = 'Imprimé le ' + now.toLocaleDateString('fr-FR') + ' à ' + now.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+
+        tableBody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:32px;color:var(--primary);font-size:1.1rem;">🏸 Connexion en cours...</td></tr>';
+        emptyState.style.display = 'none';
+    </script>
+</body>
+</html>
